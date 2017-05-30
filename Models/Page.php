@@ -3,10 +3,13 @@
 namespace ChickenTikkaMasala\LaraCms\Models;
 
 use ChickenTikkaMasala\LaraCms\Models\Traits\AuditAuthorLog;
+use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Model;
 
 class Page extends Model
 {
-    use SoftDletes, AuditAuthorLog;
+    use SoftDletes, AuditAuthorLog, Sluggable;
 
     public $table = 'lara_cms_pages';
 
@@ -15,6 +18,23 @@ class Page extends Model
         'title',
         'available-from',
     ];
+
+    public function getRouteKeyName() {
+        return 'slug';
+    }
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'title',
+            ],
+        ];
+    }
 
     public function site()
     {

@@ -3,6 +3,8 @@
 namespace ChickenTikkaMasala\LaraCms\Models;
 
 use ChickenTikkaMasala\LaraCms\Models\Traits\AuditAuthorLog;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Model;
 
 class Column extends Model
 {
@@ -23,6 +25,5 @@ class Column extends Model
     {
         return $this->belongsTo(Column::class);
     }
-
 
 }
