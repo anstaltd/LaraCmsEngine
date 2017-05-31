@@ -18,5 +18,12 @@
         "psr-4": {
             "ChickenTikkaMasala\\LaraCms\\": "src/"
         }
-    }
+    },
+    "authors": [
+        {
+            "name": "ashleigh simonelli",
+            "email": "ashleighsimonelli@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
 }
