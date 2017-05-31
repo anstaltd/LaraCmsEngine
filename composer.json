@@ -9,12 +9,10 @@
         "cviebrock/eloquent-sluggable": "^4.2",
         "intervention/image": "^2.3",
         "league/glide-laravel": "^1.0",
+        "tymon/jwt-auth": "1.0.*@dev",
         "zizaco/entrust": "5.2.x-dev"
     },
     "autoload": {
-        "classmap": [
-            "database"
-        ],
         "psr-4": {
             "ChickenTikkaMasala\\LaraCms\\": "src/"
         }

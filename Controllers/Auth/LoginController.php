@@ -14,8 +14,15 @@ use Tymon\JWTAuth\Exceptions\JWTException;
  */
 abstract class LoginController extends Controller
 {
+    /**
+     * @var string
+     */
     public $guard = '';
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
@@ -36,6 +43,9 @@ abstract class LoginController extends Controller
         ]);
     }
 
+    /**
+     * @return mixed
+     */
     public function guard()
     {
         return Auth::guard($this->guard);

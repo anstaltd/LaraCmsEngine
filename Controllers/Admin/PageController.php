@@ -3,12 +3,29 @@
 namespace ChickenTikkaMasala\LaraCms\Controllers\Admin;
 
 use ChickenTikkaMasala\LaraCms\Controllers\Controller;
+use ChickenTikkaMasala\LaraCms\Models\Site;
 use Illuminate\Http\Request;
 use ChickenTikkaMasala\LaraCms\Models\Page;
 
+/**
+ * Class PageController
+ * @package ChickenTikkaMasala\LaraCms\Controllers\Admin
+ */
 class PageController extends Controller
 {
-    public function index(Site $site)
+    /**
+     * @var array
+     */
+    public $rules = [
+        'title' => 'required',
+    ];
+
+    /**
+     * @param Request $request
+     * @param Site $site
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function index(Request $request, Site $site)
     {
         $pages = $site->pages();
 
@@ -21,8 +38,15 @@ class PageController extends Controller
         return response()->json($pages);
     }
 
+    /**
+     * @param Request $request
+     * @param Site $site
+     * @return mixed
+     */
     public function store(Request $request, Site $site)
     {
+        $this->authorize('create', Page::class);
+
         $this->validate($request, $this->rules);
 
         $page = $site->pages()->create($request->all());
@@ -30,13 +54,26 @@ class PageController extends Controller
         return resonse()->json($page);
     }
 
+    /**
+     * @param Site $site
+     * @param Page $page
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function show(Site $site, Page $page)
     {
         return response()->json($page);
     }
 
+    /**
+     * @param Request $request
+     * @param Site $site
+     * @param Page $page
+     * @return mixed
+     */
     public function update(Request $request, Site $site, Page $page)
     {
+        $this->authorize('edit', Page::class);
+
         $this->validate($request, $this->rules);
 
         $page->update($request->all());
@@ -44,8 +81,15 @@ class PageController extends Controller
         return resonse()->json($page);
     }
 
+    /**
+     * @param Site $site
+     * @param Page $page
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function destroy(Site $site, Page $page)
     {
+        $this->authorize('destroy', Page::class);
+
         $page->destroy();
 
         return response()->json([

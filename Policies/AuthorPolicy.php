@@ -5,25 +5,25 @@ namespace ChickenTikkaMasala\LaraCms\Models;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 /**
- * Class PagePolicy
+ * Class AuthorPolicy
  * @package ChickenTikkaMasala\LaraCms\Models
  */
-class PagePolicy
+class AuthorPolicy
 {
     use HandlesAuthorization;
 
     /**
-     * @var Page
+     * @var Author
      */
-    protected $page;
+    protected $author;
 
     /**
-     * PagePolicy constructor.
-     * @param Page $page
+     * AuthorPolicy constructor.
+     * @param Author $author
      */
-    public function __construct(Page $page)
+    public function __construct(Author $author)
     {
-        $this->page = $page;
+        $this->author = $author;
     }
 
     /**
@@ -35,7 +35,7 @@ class PagePolicy
      */
     protected function run(Author $author, $role)
     {
-        return $author->hasRole($role) && $author->pages()->where('pages.id', $this->page)->count() === 1;
+        return $author->hasRole($role) && $author->sites()->with('authors')->where('authors.id', $this->author)->count() === 1;
     }
 
     /**
@@ -44,7 +44,7 @@ class PagePolicy
      */
     public function create(Author $author)
     {
-        return $this->run($author, 'page.create');
+        return $this->run($author, 'author.create');
     }
 
     /**
@@ -53,7 +53,7 @@ class PagePolicy
      */
     public function edit(Author $author)
     {
-        return $this->run($author, 'page.edit');
+        return $this->run($author, 'author.edit');
     }
 
     /**
@@ -62,12 +62,12 @@ class PagePolicy
      */
     public function destroy(Author $author)
     {
-        return $this->run($author, 'page.destroy');
+        return $this->run($author, 'author.destroy');
     }
 
 //    public function __call($name, $arguments)
 //    {
-//        return $this->run($arguments, Page::class.'.'.$name);
+//        return $this->run($arguments, Author::class.'.'.$name);
 //    }
 
 }

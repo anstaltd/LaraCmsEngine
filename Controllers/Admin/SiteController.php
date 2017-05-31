@@ -3,13 +3,30 @@
 namespace ChickenTikkaMasala\LaraCms\Controllers\Admin;
 
 use ChickenTikkaMasala\LaraCms\Controllers\Controller;
+use ChickenTikkaMasala\LaraCms\Models\Site;
 use Illuminate\Http\Request;
 
+/**
+ * Class SiteController
+ * @package ChickenTikkaMasala\LaraCms\Controllers\Admin
+ */
 class SiteController extends Controller
 {
+    /**
+     * @var array
+     */
+    public $rules = [
+        'title' => 'required',
+        'domain' => 'required',
+    ];
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function index(Request $request)
     {
-        $sites = Auth::user()->sites();
+        $sites = \Auth::user()->sites();
 
         if ($request->has('search')) {
             $sites->where(function($query) use($request) {
@@ -22,13 +39,23 @@ class SiteController extends Controller
         return response()->json($sites->paginate(10));
     }
 
+    /**
+     * @param Site $site
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function show(Site $site)
     {
         return response()->json($site);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function store(Request $request)
     {
+        $this->authorize('create', Site::class);
+
         $this->validate($request, $this->rules);
 
         $site = \Auth::sites()->create($request->all());
@@ -36,8 +63,15 @@ class SiteController extends Controller
         return response()->json($site);
     }
 
+    /**
+     * @param Request $request
+     * @param Site $site
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function update(Request $request, Site $site)
     {
+        $this->authorize('edit', Site::class);
+
         $this->validate($request, $this->rules);
 
         $site->update($request->all());
@@ -45,8 +79,14 @@ class SiteController extends Controller
         return response()->json($site);
     }
 
+    /**
+     * @param Site $site
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function destroy(Site $site)
     {
+        $this->authorize('destroy', Site::class);
+
         $site->destroy();
 
         return response()->json([
