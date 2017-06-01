@@ -13,7 +13,16 @@ use Zizaco\Entrust\Traits\EntrustUserTrait;
  */
 class Author extends User
 {
-    use SoftDeletes, AuditAuthorLog, EntrustUserTrait;
+    use AuditAuthorLog, EntrustUserTrait;
+
+
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+        $this->fillable = array_merge($this->fillable, [
+            'site_id',
+        ]);
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany

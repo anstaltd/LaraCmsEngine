@@ -2,6 +2,7 @@
 
 namespace ChickenTikkaMasala\LaraCms\Controllers\Admin\Auth;
 
+
 /**
  * Class LoginController
  * @package ChickenTikkaMasala\LaraCms\Controllers\Admin\Auth

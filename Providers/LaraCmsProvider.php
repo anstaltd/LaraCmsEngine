@@ -2,8 +2,8 @@
 
 namespace ChickenTikkaMasala\LaraCms\Providers;
 
+use ChickenTikkaMasala\LaraCms\Commands\AuthorCommand;
 use ChickenTikkaMasala\LaraCms\Commands\SiteCommand;
-use ChickenTikkaMasala\LaraCms\Commands\UserCommand;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Support\ServiceProvider;
 use League\Glide\Responses\LaravelResponseFactory;
@@ -28,7 +28,7 @@ class LaraCmsProvider extends ServiceProvider
 
         $this->commands([
             SiteCommand::class,
-            UserCommand::class,
+            AuthorCommand::class,
         ]);
     }
 

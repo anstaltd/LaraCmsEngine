@@ -16,6 +16,7 @@ class Authors extends Migration
         $author = new \ChickenTikkaMasala\LaraCms\Models\Author();
         Schema::table($author->table, function(Blueprint $table) {
             $table->softDeletes();
+            $table->integer('site_id');
         });
     }
 
@@ -28,7 +29,10 @@ class Authors extends Migration
     {
         $author = new \ChickenTikkaMasala\LaraCms\Models\Author();
         Schema::table($author->table, function(Blueprint $table) {
-            $table->dropColumn('deleted_at');
+            $table->dropColumn([
+                'deleted_at',
+                'site_id',
+            ]);
         });
     }
 }

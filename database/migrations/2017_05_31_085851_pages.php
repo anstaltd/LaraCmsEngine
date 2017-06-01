@@ -19,11 +19,11 @@ class Pages extends Migration
             $table->string('slug');
             $table->integer('site_id');
             $table->string('authorable_type');
-            $table->string('updatable_type');
-            $table->string('deletable_type');
+            $table->string('updatable_type')->nullable();
+            $table->string('deletable_type')->nullable();
             $table->integer('authorable_id');
-            $table->integer('updatable_id');
-            $table->integer('deletable_id');
+            $table->integer('updatable_id')->nullable();
+            $table->integer('deletable_id')->nullable();
             $table->text('config_data');
             $table->dateTime('available_at');
             $table->timestamps();

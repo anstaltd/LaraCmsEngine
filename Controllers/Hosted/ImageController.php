@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers;
+namespace ChickenTikkaMasala\LaraCms\Controllers\Hosted;
 
 use ChickenTikkaMasala\LaraCms\Controllers\Controller;
 use League\Glide\Server;

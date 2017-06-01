@@ -2,7 +2,7 @@
 
 namespace ChickenTikkaMasala\LaraCms\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use ChickenTikkaMasala\LaraCms\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
 use JWTAuth;

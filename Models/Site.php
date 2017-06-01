@@ -25,8 +25,8 @@ class Site extends Model
      */
     public $fillable = [
         'domain',
-        'active',
         'config_data',
+        'title',
     ];
 
     /**
