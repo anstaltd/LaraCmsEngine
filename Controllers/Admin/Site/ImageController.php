@@ -1,6 +1,6 @@
 <?php
 
-namespace ChickenTikkaMasala\LaraCms\Controllers\Admin;
+namespace ChickenTikkaMasala\LaraCms\Controllers\Admin\Site;
 
 use ChickenTikkaMasala\LaraCms\Controllers\Controller;
 use ChickenTikkaMasala\LaraCms\Models\Image;
@@ -74,7 +74,8 @@ class ImageController extends Controller
 
         $this->validate($request, $this->rules);
 
-        $image = $site->authors()->create($request->all());
+        $image = $site->images()
+            ->create($request->all());
 
         return response()->json($image);
     }

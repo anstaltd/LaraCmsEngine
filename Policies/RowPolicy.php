@@ -5,64 +5,65 @@ namespace ChickenTikkaMasala\LaraCms\Models;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 /**
- * Class AuthorPolicy
+ * Class RowPolicy
  * @package ChickenTikkaMasala\LaraCms\Models
  */
-class AuthorPolicy
+class RowPolicy
 {
     use HandlesAuthorization;
 
     /**
      * @var Author
      */
-    protected $author;
+    protected $row;
 
     /**
      * AuthorPolicy constructor.
      * @param Author $author
      */
-    public function __construct(Author $author)
+    public function __construct(Row $row)
     {
-        $this->author = $author;
+        $this->row = $row;
     }
 
     /**
      * Check author's Role and ownership
      *
      * @param Author $author
+     * @param Page $page
      * @param $role
      * @return bool
      */
-    protected function run(Author $author, $role)
+    protected function run(Author $author, Page $page, $role)
     {
-        return $author->hasRole($role) && $author->sites()->with('authors')->where($author->getTable().'.id', $this->author->id)->count() === 1;
+        return $author->hasRole($role) && $author->pages()->with('rows')->where('lara_cms_rows.id', $this->row->id)->where('lara_cms_pages.id', $page->id)->count() === 1;
     }
 
     /**
      * @param Author $author
      * @return bool
      */
-    public function create(Author $author)
+    public function create(Author $author, Page $page)
     {
-        return $this->run($author, 'author.create');
+        return $this->run($author, $page, 'page.create');
     }
 
     /**
      * @param Author $author
      * @return bool
      */
-    public function edit(Author $author)
+    public function edit(Author $author, Page $page)
     {
-        return $this->run($author, 'author.edit');
+        return $this->run($author, $page, 'page.edit');
     }
 
     /**
      * @param Author $author
      * @return bool
      */
-    public function destroy(Author $author)
+    public function destroy(Author $author, Page $page)
     {
-        return $this->run($author, 'author.destroy');
+        return $this->run($author, $page, 'page.destroy');
     }
 
 //    public function __call($name, $arguments)

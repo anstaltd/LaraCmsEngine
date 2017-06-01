@@ -2,6 +2,21 @@
 
 ## Install
 
+Add the required packages to your `composer.json` file:
+
+```json
+{
+    "require": {
+        "chickentikkamasala/laracms": "dev-master",
+        "cviebrock/eloquent-sluggable": "^4.2",
+        "intervention/image": "^2.3",
+        "league/glide-laravel": "^1.0",
+        "zizaco/entrust": "5.2.x-dev",
+        "tymon/jwt-auth": "1.0.*@dev"
+    }
+}
+```
+
 Add the service provider to your `config/app.php` file.
 
 ```php

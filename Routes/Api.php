@@ -11,6 +11,7 @@ Route::group([
     Route::group([
         'namespace' => 'Admin',
         'prefix' => 'admin',
+        'middleware' => 'jwt.auth',
     ], function() {
 
         Route::resource('/sites', 'SiteController', [

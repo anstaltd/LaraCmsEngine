@@ -17,6 +17,7 @@ class Authors extends Migration
         Schema::table($author->table, function(Blueprint $table) {
             $table->softDeletes();
             $table->integer('site_id');
+            $table->integer('default_image_id')->default(0);
         });
     }
 
@@ -32,6 +33,7 @@ class Authors extends Migration
             $table->dropColumn([
                 'deleted_at',
                 'site_id',
+                'default_image_id',
             ]);
         });
     }

@@ -40,4 +40,20 @@ class Author extends User
         return $this->hasManyThrough(Page::class, Site::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function defaultImage()
+    {
+        return $this->hasOne(Image::class, 'default_image_id');
+    }
+
 }
