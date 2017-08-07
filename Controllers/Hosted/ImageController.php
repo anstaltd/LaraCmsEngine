@@ -1,7 +1,7 @@
 <?php
-namespace ChickenTikkaMasala\LaraCms\Controllers\Hosted;
+namespace Ansta\LaraCms\Controllers\Hosted;
 
-use ChickenTikkaMasala\LaraCms\Controllers\Controller;
+use Ansta\LaraCms\Controllers\Controller;
 use League\Glide\Server;
 
 /**

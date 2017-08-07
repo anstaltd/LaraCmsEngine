@@ -1,13 +1,13 @@
 <?php
 
-namespace ChickenTikkaMasala\LaraCms\Controllers\Admin\Auth;
+namespace Ansta\LaraCms\Controllers\Admin\Auth;
 
 
 /**
  * Class LoginController
- * @package ChickenTikkaMasala\LaraCms\Controllers\Admin\Auth
+ * @package Ansta\LaraCms\Controllers\Admin\Auth
  */
-class LoginController extends \ChickenTikkaMasala\LaraCms\Controllers\Auth\LoginController
+class LoginController extends \Ansta\LaraCms\Controllers\Auth\LoginController
 {
     /**
      * @var string

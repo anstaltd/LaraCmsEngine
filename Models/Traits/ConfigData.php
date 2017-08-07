@@ -1,6 +1,6 @@
 <?php
 
-namespace ChickenTikkaMasala\LaraCms\Models\Traits;
+namespace Ansta\LaraCms\Models\Traits;
 
 trait ConfigData
 {

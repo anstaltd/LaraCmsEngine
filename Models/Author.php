@@ -1,15 +1,15 @@
 <?php
 
-namespace ChickenTikkaMasala\LaraCms\Models;
+namespace Ansta\LaraCms\Models;
 
 use App\User;
-use ChickenTikkaMasala\LaraCms\Models\Traits\AuditAuthorLog;
+use Ansta\LaraCms\Models\Traits\AuditAuthorLog;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
 
 /**
  * Class Author
- * @package ChickenTikkaMasala\LaraCms\Models
+ * @package Ansta\LaraCms\Models
  */
 class Author extends User
 {

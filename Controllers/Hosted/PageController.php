@@ -1,14 +1,14 @@
 <?php
 
-namespace ChickenTikkaMasala\LaraCms\Controllers\Hosted;
+namespace Ansta\LaraCms\Controllers\Hosted;
 
-use ChickenTikkaMasala\LaraCms\Controllers\Controller;
-use ChickenTikkaMasala\LaraCms\Models\Page;
-use ChickenTikkaMasala\LaraCms\Models\Site;
+use Ansta\LaraCms\Controllers\Controller;
+use Ansta\LaraCms\Models\Page;
+use Ansta\LaraCms\Models\Site;
 
 /**
  * Class PageController
- * @package ChickenTikkaMasala\LaraCms\Controllers\Hosted
+ * @package Ansta\LaraCms\Controllers\Hosted
  */
 class PageController extends Controller
 {

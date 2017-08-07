@@ -1,7 +1,7 @@
 <?php
 
 Route::group([
-    'namespace' => '\ChickenTikkaMasala\LaraCms\Controllers',
+    'namespace' => '\Ansta\LaraCms\Controllers',
     'middleware' => 'api',
 ], function() {
 

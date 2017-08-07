@@ -1,10 +1,10 @@
 <?php
 
-namespace ChickenTikkaMasala\LaraCms\Models\Traits;
+namespace Ansta\LaraCms\Models\Traits;
 
 /**
  * Class AuditAuthorLog
- * @package ChickenTikkaMasala\LaraCms\Models\Traits
+ * @package Ansta\LaraCms\Models\Traits
  */
 trait AuditAuthorLog
 {

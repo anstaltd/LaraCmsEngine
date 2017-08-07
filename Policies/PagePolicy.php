@@ -1,12 +1,12 @@
 <?php
 
-namespace ChickenTikkaMasala\LaraCms\Models;
+namespace Ansta\LaraCms\Models;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 /**
  * Class PagePolicy
- * @package ChickenTikkaMasala\LaraCms\Models
+ * @package Ansta\LaraCms\Models
  */
 class PagePolicy
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace ChickenTikkaMasala\LaraCms\Controllers\Auth;
+namespace Ansta\LaraCms\Controllers\Auth;
 
-use ChickenTikkaMasala\LaraCms\Controllers\Controller;
+use Ansta\LaraCms\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
 use JWTAuth;

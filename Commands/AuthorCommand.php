@@ -1,15 +1,15 @@
 <?php
 
-namespace ChickenTikkaMasala\LaraCms\Commands;
+namespace Ansta\LaraCms\Commands;
 
-use ChickenTikkaMasala\LaraCms\Models\Author;
-use ChickenTikkaMasala\LaraCms\Models\Site;
+use Ansta\LaraCms\Models\Author;
+use Ansta\LaraCms\Models\Site;
 use Illuminate\Console\Command;
 use Illuminate\Validation\Validator;
 
 /**
  * Class SiteCommand
- * @package ChickenTikkaMasala\LaraCms\Commands
+ * @package Ansta\LaraCms\Commands
  */
 class AuthorCommand extends Command
 {

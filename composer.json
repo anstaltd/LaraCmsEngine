@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "ChickenTikkaMasala\\LaraCms\\": "src/"
+            "Ansta\\LaraCms\\": "src/"
         }
     },
     "authors": [

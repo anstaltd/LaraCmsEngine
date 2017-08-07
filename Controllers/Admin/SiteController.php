@@ -1,14 +1,14 @@
 <?php
 
-namespace ChickenTikkaMasala\LaraCms\Controllers\Admin;
+namespace Ansta\LaraCms\Controllers\Admin;
 
-use ChickenTikkaMasala\LaraCms\Controllers\Controller;
-use ChickenTikkaMasala\LaraCms\Models\Site;
+use Ansta\LaraCms\Controllers\Controller;
+use Ansta\LaraCms\Models\Site;
 use Illuminate\Http\Request;
 
 /**
  * Class SiteController
- * @package ChickenTikkaMasala\LaraCms\Controllers\Admin
+ * @package Ansta\LaraCms\Controllers\Admin
  */
 class SiteController extends Controller
 {

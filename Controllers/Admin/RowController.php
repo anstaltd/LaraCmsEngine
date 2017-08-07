@@ -1,15 +1,15 @@
 <?php
 
-namespace ChickenTikkaMasala\LaraCms\Controllers\Admin;
+namespace Ansta\LaraCms\Controllers\Admin;
 
-use ChickenTikkaMasala\LaraCms\Controllers\Controller;
-use ChickenTikkaMasala\LaraCms\Models\Page;
-use ChickenTikkaMasala\LaraCms\Models\Row;
+use Ansta\LaraCms\Controllers\Controller;
+use Ansta\LaraCms\Models\Page;
+use Ansta\LaraCms\Models\Row;
 use Illuminate\Http\Request;
 
 /**
  * Class RowController
- * @package ChickenTikkaMasala\LaraCms\Controllers\Admin
+ * @package Ansta\LaraCms\Controllers\Admin
  */
 class RowController extends Controller
 {

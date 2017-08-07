@@ -1,16 +1,16 @@
 <?php
 
-namespace ChickenTikkaMasala\LaraCms\Models;
+namespace Ansta\LaraCms\Models;
 
-use ChickenTikkaMasala\LaraCms\Models\Traits\AuditAuthorLog;
-use ChickenTikkaMasala\LaraCms\Models\Traits\ConfigData;
+use Ansta\LaraCms\Models\Traits\AuditAuthorLog;
+use Ansta\LaraCms\Models\Traits\ConfigData;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Page
- * @package ChickenTikkaMasala\LaraCms\Models
+ * @package Ansta\LaraCms\Models
  */
 class Page extends Model
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace ChickenTikkaMasala\LaraCms\Controllers;
+namespace Ansta\LaraCms\Controllers;
 
 use App\Http\Controllers\Controller as BaseController;
 

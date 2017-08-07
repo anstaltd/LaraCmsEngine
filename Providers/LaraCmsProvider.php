@@ -1,9 +1,9 @@
 <?php
 
-namespace ChickenTikkaMasala\LaraCms\Providers;
+namespace Ansta\LaraCms\Providers;
 
-use ChickenTikkaMasala\LaraCms\Commands\AuthorCommand;
-use ChickenTikkaMasala\LaraCms\Commands\SiteCommand;
+use Ansta\LaraCms\Commands\AuthorCommand;
+use Ansta\LaraCms\Commands\SiteCommand;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Support\ServiceProvider;
 use League\Glide\Responses\LaravelResponseFactory;
@@ -12,7 +12,7 @@ use League\Glide\ServerFactory;
 
 /**
  * Class LaraCmsProvider
- * @package ChickenTikkaMasala\LaraCms\Providers
+ * @package Ansta\LaraCms\Providers
  */
 class LaraCmsProvider extends ServiceProvider
 {

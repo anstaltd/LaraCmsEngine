@@ -1,12 +1,12 @@
 <?php
 
-namespace ChickenTikkaMasala\LaraCms\Controllers\Admin;
+namespace Ansta\LaraCms\Controllers\Admin;
 
-use ChickenTikkaMasala\LaraCms\Controllers\Controller;
+use Ansta\LaraCms\Controllers\Controller;
 
 /**
  * Class DashboardController
- * @package ChickenTikkaMasala\LaraCms\Controllers\Admin
+ * @package Ansta\LaraCms\Controllers\Admin
  */
 class DashboardController extends Controller
 {

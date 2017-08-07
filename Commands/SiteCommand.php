@@ -1,13 +1,13 @@
 <?php
 
-namespace ChickenTikkaMasala\LaraCms\Commands;
+namespace Ansta\LaraCms\Commands;
 
-use ChickenTikkaMasala\LaraCms\Models\Site;
+use Ansta\LaraCms\Models\Site;
 use Illuminate\Console\Command;
 
 /**
  * Class SiteCommand
- * @package ChickenTikkaMasala\LaraCms\Commands
+ * @package Ansta\LaraCms\Commands
  */
 class SiteCommand extends Command
 {

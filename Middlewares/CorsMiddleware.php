@@ -1,13 +1,13 @@
 <?php
 
-namespace ChickenTikkaMasala\LaraCms\Middlewares;
+namespace Ansta\LaraCms\Middlewares;
 
 use Closure;
 use Illuminate\Http\Response;
 
 /**
  * Class CorsMiddleware
- * @package ChickenTikkaMasala\LaraCms\Middlewares
+ * @package Ansta\LaraCms\Middlewares
  */
 class CorsMiddleware
 {

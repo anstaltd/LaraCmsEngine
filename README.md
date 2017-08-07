@@ -7,7 +7,7 @@ Add the required packages to your `composer.json` file:
 ```json
 {
     "require": {
-        "chickentikkamasala/laracms": "dev-master",
+        "Ansta/laracms": "dev-master",
         "cviebrock/eloquent-sluggable": "^4.2",
         "intervention/image": "^2.3",
         "league/glide-laravel": "^1.0",
@@ -22,7 +22,7 @@ Add the service provider to your `config/app.php` file.
 ```php
 'providers' => [
     ...
-    ChickenTikkaMasala\LaraCms\Providers\LaraCmsProvider::class,
+    Ansta\LaraCms\Providers\LaraCmsProvider::class,
     ...
 ];
 ```
@@ -47,7 +47,7 @@ Add the following middlewares to the kernel:
 
 protected $middlewares = [
     ...
-    \ChickenTikkaMasala\LaraCms\Middlewares\CorsMiddleware::class,
+    \Ansta\LaraCms\Middlewares\CorsMiddleware::class,
     ...
 ];
 

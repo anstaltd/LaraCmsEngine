@@ -1,15 +1,15 @@
 <?php
 
-namespace ChickenTikkaMasala\LaraCms\Controllers\Admin\Author;
+namespace Ansta\LaraCms\Controllers\Admin\Author;
 
-use ChickenTikkaMasala\LaraCms\Controllers\Controller;
-use ChickenTikkaMasala\LaraCms\Models\Author;
-use ChickenTikkaMasala\LaraCms\Models\Image;
+use Ansta\LaraCms\Controllers\Controller;
+use Ansta\LaraCms\Models\Author;
+use Ansta\LaraCms\Models\Image;
 use Illuminate\Http\Request;
 
 /**
  * Class ImageController
- * @package ChickenTikkaMasala\LaraCms\Controllers\Admin\Author
+ * @package Ansta\LaraCms\Controllers\Admin\Author
  */
 class ImageController extends Controller
 {
