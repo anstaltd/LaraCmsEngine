@@ -27,7 +27,6 @@ class Row extends Model
         'position',
         'config_data',
         'site_id',
-        'html',
     ];
 
     /**

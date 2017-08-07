@@ -32,7 +32,6 @@ class RowsColumns extends Migration
             $table->increments('id');
             $table->integer('position');
             $table->integer('row_id');
-            $table->text('html');
             $table->string('authorable_type');
             $table->string('updatable_type')->nullable();
             $table->string('deletable_type')->nullable();
