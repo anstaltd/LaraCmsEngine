@@ -2,7 +2,7 @@
 
 namespace Ansta\LaraCms\Controllers\Auth;
 
-use Ansta\LaraCms\Controllers\Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
 use JWTAuth;
@@ -14,15 +14,8 @@ use Tymon\JWTAuth\Exceptions\JWTException;
  */
 abstract class LoginController extends Controller
 {
-    /**
-     * @var string
-     */
     public $guard = '';
 
-    /**
-     * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
@@ -40,14 +33,12 @@ abstract class LoginController extends Controller
         // if no errors are encountered we can return a JWT
         return response()->json([
             'token' => $token,
+            'user' => \Auth::user(),
         ]);
     }
 
-    /**
-     * @return mixed
-     */
     public function guard()
     {
-        return Auth::guard($this->guard);
+        return \Auth::guard($this->guard);
     }
 }

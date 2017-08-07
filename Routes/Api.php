@@ -6,7 +6,7 @@ Route::group([
 ], function() {
 
 
-    //Route::post('/admin/login', 'Auth\LoginController@login');
+    Route::post('/admin/login', 'Admin\Auth\LoginController@login');
 
     Route::group([
         'namespace' => 'Admin',
@@ -35,12 +35,12 @@ Route::group([
             ],
         ]);
 
-        Route::resource('/sites/{site}/images', 'ImageController', [
-            'except' => [
-                'create',
-                'edit',
-            ],
-        ]);
+//        Route::resource('/sites/{site}/images', 'ImageController', [
+//            'except' => [
+//                'create',
+//                'edit',
+//            ],
+//        ]);
     });
 
     Route::group([
@@ -48,6 +48,6 @@ Route::group([
     ], function() {
 
         Route::get('/{page}', 'PageController@index');
-        Route::get('/images/{path}', 'ImageController@show')->where('path', '*')->name('image.manipulator');
+        //Route::get('/images/{path}', 'ImageController@show')->where('path', '*')->name('image.manipulator');
     });
 });

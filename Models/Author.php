@@ -2,16 +2,16 @@
 
 namespace Ansta\LaraCms\Models;
 
-use App\User;
 use Ansta\LaraCms\Models\Traits\AuditAuthorLog;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
  * Class Author
  * @package Ansta\LaraCms\Models
  */
-class Author extends User
+class Author extends Authenticatable implements JWTSubject
 {
     use AuditAuthorLog, EntrustUserTrait;
 
@@ -56,4 +56,23 @@ class Author extends User
         return $this->hasOne(Image::class, 'default_image_id');
     }
 
+    /**
+     * Get the identifier that will be stored in the subject claim of the JWT.
+     *
+     * @return mixed
+     */
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    /**
+     * Return a key value array, containing any custom claims to be added to the JWT.
+     *
+     * @return array
+     */
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
 }

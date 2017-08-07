@@ -18,6 +18,9 @@ class Authors extends Migration
             $table->softDeletes();
             $table->integer('site_id');
             $table->integer('default_image_id')->default(0);
+            $table->dropColumn('name');
+            $table->string('firstname');
+            $table->string('lastname');
         });
     }
 
@@ -35,6 +38,7 @@ class Authors extends Migration
                 'site_id',
                 'default_image_id',
             ]);
+            $table->string('name');
         });
     }
 }

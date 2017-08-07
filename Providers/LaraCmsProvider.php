@@ -44,7 +44,7 @@ class LaraCmsProvider extends ServiceProvider
     {
         return [
             \Zizaco\Entrust\EntrustServiceProvider::class,
-            \Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+            //\Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
             \Intervention\Image\ImageServiceProvider::class,
             \Cviebrock\EloquentSluggable\ServiceProvider::class,
         ];
