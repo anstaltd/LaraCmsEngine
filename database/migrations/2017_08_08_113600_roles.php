@@ -48,9 +48,9 @@ class Roles extends Migration
     public function down()
     {
 
-        \DB::table('permission_role')->truncate();
-        \DB::table('role_user')->truncate();
-        \DB::table('roles')->truncate();
-        \DB::table('permissions')->truncate();
+//        \DB::table('permission_role')->truncate();
+//        \DB::table('role_user')->truncate();
+//        \DB::table('roles')->truncate();
+//        \DB::table('permissions')->truncate();
     }
 }

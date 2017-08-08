@@ -4,6 +4,7 @@ namespace Ansta\LaraCms\Models;
 
 use Ansta\LaraCms\Models\Traits\AuditAuthorLog;
 use Ansta\LaraCms\Models\Traits\ConfigData;
+use App\User;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
@@ -38,11 +39,11 @@ class Site extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function authors()
     {
-        return $this->hasMany(Author::class);
+        return $this->belongsToMany(User::class);
     }
 
     /**
