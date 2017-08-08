@@ -18,7 +18,7 @@ class Site extends Model
     /**
      * @var string
      */
-    public $table = 'lara_cms_sites';
+    public $table = 'sites';
 
     /**
      * @var array

@@ -13,7 +13,7 @@ class RowsColumns extends Migration
      */
     public function up()
     {
-        Schema::create('lara_cms_rows', function (Blueprint $table) {
+        Schema::create('rows', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('position');
             $table->integer('page_id');
@@ -28,7 +28,7 @@ class RowsColumns extends Migration
             $table->softDeletes();
         });
 
-        Schema::create('lara_cms_columns', function (Blueprint $table) {
+        Schema::create('columns', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('position');
             $table->integer('row_id');
@@ -51,7 +51,7 @@ class RowsColumns extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lara_cms_rows');
-        Schema::dropIfExists('lara_cms_columns');
+        Schema::dropIfExists('rows');
+        Schema::dropIfExists('columns');
     }
 }

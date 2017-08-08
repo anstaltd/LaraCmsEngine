@@ -13,7 +13,7 @@ class Sites extends Migration
      */
     public function up()
     {
-        Schema::create('lara_cms_sites', function(Blueprint $table) {
+        Schema::create('sites', function(Blueprint $table) {
             $table->increments('id');
             $table->string('title');
             $table->string('domain');
@@ -27,9 +27,9 @@ class Sites extends Migration
             $table->softDeletes();
         });
 
-        Schema::create('lara_cms_author_sites', function(Blueprint $table) {
+        Schema::create('site_user', function(Blueprint $table) {
             $table->increments('id');
-            $table->integer('author_id');
+            $table->integer('user_id');
             $table->integer('site_id');
         });
     }
@@ -41,7 +41,7 @@ class Sites extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lara_cms_sites');
-        Schema::dropIfExists('lara_cms_author_sites');
+        Schema::dropIfExists('sites');
+        Schema::dropIfExists('site_user');
     }
 }

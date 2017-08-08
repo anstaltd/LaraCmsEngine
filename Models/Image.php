@@ -18,7 +18,7 @@ class Image extends Model
     /**
      * @var string
      */
-    public $table = 'lara_cms_images';
+    public $table = 'images';
 
     /**
      * @var array

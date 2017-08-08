@@ -18,7 +18,7 @@ class Row extends Model
     /**
      * @var string
      */
-    public $table = 'lara_cms_rows';
+    public $table = 'rows';
 
     /**
      * @var array

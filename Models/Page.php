@@ -16,7 +16,7 @@ class Page extends Model
 {
     use SoftDeletes, AuditAuthorLog, Sluggable, ConfigData;
 
-    public $table = 'lara_cms_pages';
+    public $table = 'pages';
 
     public $fillable = [
         'slug',

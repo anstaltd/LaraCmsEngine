@@ -16,6 +16,8 @@ use League\Glide\ServerFactory;
  */
 class LaraCmsProvider extends ServiceProvider
 {
+
+
     public function boot()
     {
         $this->publishes([
@@ -43,10 +45,10 @@ class LaraCmsProvider extends ServiceProvider
     public function provides()
     {
         return [
-            \Zizaco\Entrust\EntrustServiceProvider::class,
+//            \Zizaco\Entrust\EntrustServiceProvider::class,
             //\Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
-            \Intervention\Image\ImageServiceProvider::class,
-            \Cviebrock\EloquentSluggable\ServiceProvider::class,
+//            \Intervention\Image\ImageServiceProvider::class,
+//            \Cviebrock\EloquentSluggable\ServiceProvider::class,
         ];
     }
 

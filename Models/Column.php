@@ -18,7 +18,7 @@ class Column extends Model
     /**
      * @var string
      */
-    public $table = 'lara_cms_columns';
+    public $table = 'columns';
 
     /**
      * @var array

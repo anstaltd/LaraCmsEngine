@@ -36,7 +36,7 @@ class RowPolicy
      */
     protected function run(Author $author, Page $page, $role)
     {
-        return $author->hasRole($role) && $author->pages()->with('rows')->where('lara_cms_rows.id', $this->row->id)->where('lara_cms_pages.id', $page->id)->count() === 1;
+        return $author->hasRole($role) && $author->sites()->where('lara_cms_sites.id', $page->site->id);
     }
 
     /**

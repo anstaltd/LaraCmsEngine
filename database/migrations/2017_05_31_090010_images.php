@@ -13,7 +13,7 @@ class Images extends Migration
      */
     public function up()
     {
-        Schema::create('lara_cms_images', function(Blueprint $table) {
+        Schema::create('images', function(Blueprint $table) {
             $table->increments('id');
             $table->integer('imagable_id');
             $table->string('imagable_type');
@@ -39,6 +39,6 @@ class Images extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lara_cms_images');
+        Schema::dropIfExists('images');
     }
 }
