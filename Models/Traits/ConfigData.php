@@ -4,12 +4,12 @@ namespace Ansta\LaraCms\Models\Traits;
 
 trait ConfigData
 {
-    public function setConfigDataAttribute($value)
+    public function setConfigAttribute($value)
     {
-        return $this->attributes['config_data'] = json_encode(is_array($value) ? $value : []);
+        return $this->attributes['config'] = json_encode(is_array($value) ? $value : []);
     }
 
-    public function getConfigDataAttribute($value)
+    public function getConfigAttribute($value)
     {
         return json_decode($value);
     }

@@ -35,7 +35,7 @@ class PagePolicy
      */
     protected function run(Author $author, $role)
     {
-        return $author->hasRole($role) && $this->sites()->where('lara_cms_sites.id', $this->page->site->id)->count() === 1;
+        return $author->hasRole($role);
     }
 
     /**

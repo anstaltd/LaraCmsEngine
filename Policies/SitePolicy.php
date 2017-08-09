@@ -35,7 +35,7 @@ class SitePolicy
      */
     protected function run(Author $author, $role)
     {
-        return $author->hasRole($role) && $author->sites()->where('sites.id', $this->site)->count() === 1;
+        return $author->hasRole($role) && $author->sites()->where('sites.id', $this->site->id)->count() === 1;
     }
 
     /**

@@ -6,43 +6,34 @@ use Ansta\LaraCms\Models\Traits\AuditAuthorLog;
 use Ansta\LaraCms\Models\Traits\ConfigData;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
+use Kalnoy\Nestedset\NodeTrait;
 
 /**
  * Class Column
  * @package Ansta\LaraCms\Models
  */
-class Column extends Model
+class Component extends Model
 {
-    use SoftDeletes, AuditAuthorLog, ConfigData;
+    use SoftDeletes, AuditAuthorLog, ConfigData, NodeTrait;
 
     /**
      * @var string
      */
-    public $table = 'columns';
+    public $table = 'components';
 
     /**
      * @var array
      */
     public $fillable = [
-        'config_data',
-        'position',
-        'row_id',
+        'config',
+        'page_id',
     ];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
-     */
-    public function page()
-    {
-        return $this->hasManyThrough(Page::class, Row::class);
-    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function row()
+    public function page()
     {
-        return $this->belongsTo(Column::class);
+        return $this->belongsTo(Page::class);
     }
-
 }

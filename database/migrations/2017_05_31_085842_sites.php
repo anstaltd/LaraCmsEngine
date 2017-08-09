@@ -22,7 +22,7 @@ class Sites extends Migration
             $table->string('deletable_type')->nullable();
             $table->integer('updatable_id')->nullable();
             $table->integer('deletable_id')->nullable();
-            $table->text('config_data');
+            $table->text('config');
             $table->timestamps();
             $table->softDeletes();
         });

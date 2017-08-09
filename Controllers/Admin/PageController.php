@@ -49,7 +49,13 @@ class PageController extends Controller
 
         $this->validate($request, $this->rules);
 
-        $page = $site->pages()->create($request->all());
+        $options = $request->all();
+
+        $page = $site->pages()->create($options);
+
+        if (isset($options['components'])) {
+            $page->components()->create($options['components']);
+        }
 
         return resonse()->json($page);
     }
@@ -77,6 +83,8 @@ class PageController extends Controller
         $this->validate($request, $this->rules);
 
         $page->update($request->all());
+
+        //need to update components
 
         return resonse()->json($page);
     }

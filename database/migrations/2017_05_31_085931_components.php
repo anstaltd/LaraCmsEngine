@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Kalnoy\Nestedset\NestedSet;
 
-class Pages extends Migration
+class Components extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +14,9 @@ class Pages extends Migration
      */
     public function up()
     {
-        Schema::create('pages', function(Blueprint $table) {
+        Schema::create('components', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('slug');
-            $table->integer('site_id');
+            $table->integer('page_id');
             $table->string('authorable_type');
             $table->string('updatable_type')->nullable();
             $table->string('deletable_type')->nullable();
@@ -25,7 +24,7 @@ class Pages extends Migration
             $table->integer('updatable_id')->nullable();
             $table->integer('deletable_id')->nullable();
             $table->text('config');
-            $table->dateTime('available_at');
+            NestedSet::columns($table);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -38,6 +37,6 @@ class Pages extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pages');
+        Schema::dropIfExists('components');
     }
 }

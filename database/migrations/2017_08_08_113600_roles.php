@@ -17,8 +17,7 @@ class Roles extends Migration
         $roles = [
             'page',
             'author',
-            'column',
-            'row',
+            'component',
             'site',
         ];
 

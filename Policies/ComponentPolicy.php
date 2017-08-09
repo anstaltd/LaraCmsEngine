@@ -5,25 +5,25 @@ namespace Ansta\LaraCms\Models;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 /**
- * Class RowPolicy
+ * Class ComponentPolicy
  * @package Ansta\LaraCms\Models
  */
-class RowPolicy
+class ComponentPolicy
 {
     use HandlesAuthorization;
 
     /**
-     * @var Author
+     * @var Component
      */
-    protected $row;
+    protected $component;
 
     /**
      * AuthorPolicy constructor.
      * @param Author $author
      */
-    public function __construct(Row $row)
+    public function __construct(Component $component)
     {
-        $this->row = $row;
+        $this->component = $component;
     }
 
     /**
@@ -36,11 +36,12 @@ class RowPolicy
      */
     protected function run(Author $author, Page $page, $role)
     {
-        return $author->hasRole($role) && $author->sites()->where('lara_cms_sites.id', $page->site->id);
+        return $author->hasRole($role);
     }
 
     /**
      * @param Author $author
+     * @param Page $page
      * @return bool
      */
     public function create(Author $author, Page $page)
@@ -50,6 +51,7 @@ class RowPolicy
 
     /**
      * @param Author $author
+     * @param Page $page
      * @return bool
      */
     public function edit(Author $author, Page $page)
@@ -59,6 +61,7 @@ class RowPolicy
 
     /**
      * @param Author $author
+     * @param Page $page
      * @return bool
      */
     public function destroy(Author $author, Page $page)

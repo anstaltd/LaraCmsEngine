@@ -3,15 +3,15 @@
 namespace Ansta\LaraCms\Controllers\Admin;
 
 use Ansta\LaraCms\Controllers\Controller;
+use Ansta\LaraCms\Models\Component;
 use Ansta\LaraCms\Models\Page;
-use Ansta\LaraCms\Models\Row;
 use Illuminate\Http\Request;
 
 /**
- * Class RowController
+ * Class ColumnController
  * @package Ansta\LaraCms\Controllers\Admin
  */
-class RowController extends Controller
+class ComponentController extends Controller
 {
     public $rules = [
         'position' => 'required|integer',
@@ -24,9 +24,11 @@ class RowController extends Controller
      */
     public function index(Request $request, Page $page)
     {
-        $rows = $page->rows()->paginate(10);
+        $components = $page->components()
+            ->get()
+            ->all();
 
-        return response()->json($rows);
+        return response()->json($components);
     }
 
     /**
@@ -36,41 +38,43 @@ class RowController extends Controller
      */
     public function store(Request $request, Page $page)
     {
-        $this->authorize('create', Row::class);
+        $this->authorize('create', Component::class);
 
         $this->validate($request->all(), $this->rules);
 
-        $row = $page->rows()->create($request->all());
+        $column = $row->columns()->create($request->all());
 
-        return response()->json($row);
+        return response()->json($column);
     }
 
     /**
      * @param Request $request
      * @param Page $page
      * @param Row $row
+     * @param Column $column
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, Page $page, Row $row)
+    public function update(Request $request, Page $page, Row $row, Column $column)
     {
-        $this->authorize('update', Row::class);
+        $this->authorize('update', Column::class);
 
         $this->validate($request->all(), $this->rules);
 
-        $row->update($request->all());
+        $column->update($request->all());
 
-        return response()->json($row);
+        return response()->json($column);
     }
 
     /**
      * @param Request $request
      * @param Page $page
      * @param Row $row
+     * @param Column $column
      * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy(Request $request, Page $page, Row $row)
+    public function destroy(Request $request, Page $page, Row $row, Column $column)
     {
-        $this->authorize('destroy', Row::class);
+        $this->authorize('destroy', Column::class);
 
         $row->destroy();
 

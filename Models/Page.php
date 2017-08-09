@@ -29,6 +29,7 @@ class Page extends Model
         'updatable_id',
         'deletable_type',
         'deletable_id',
+        'config',
     ];
 
     /**
@@ -63,16 +64,8 @@ class Page extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function rows()
+    public function components()
     {
-        return $this->hasMany(Row::class);
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
-     */
-    public function columns()
-    {
-        return $this->hasManyThrough(Column::class, Row::class);
+        return $this->hasMany(Component::class);
     }
 }
