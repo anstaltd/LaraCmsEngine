@@ -1,7 +1,10 @@
 <?php
 
-namespace Ansta\LaraCms\Models;
+namespace Ansta\LaraCms\Policy;
 
+use Ansta\LaraCms\Models\Author;
+use Ansta\LaraCms\Models\Component;
+use Ansta\LaraCms\Models\Page;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 /**

@@ -11,12 +11,13 @@ use League\Glide\Server;
 use League\Glide\ServerFactory;
 
 /**
- * Class LaraCmsProvider
- * @package Ansta\LaraCms\Providers
+ * LaraCmsProvider
+ * @author Aaryanna Simonelli <ashleighsimonelli@gmail.com>
  */
 class LaraCmsProvider extends ServiceProvider
 {
 
+    protected $defer = true;
 
     public function boot()
     {
@@ -45,10 +46,10 @@ class LaraCmsProvider extends ServiceProvider
     public function provides()
     {
         return [
-//            \Zizaco\Entrust\EntrustServiceProvider::class,
-            //\Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
-//            \Intervention\Image\ImageServiceProvider::class,
-//            \Cviebrock\EloquentSluggable\ServiceProvider::class,
+            \Zizaco\Entrust\EntrustServiceProvider::class,
+            \Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+            \Intervention\Image\ImageServiceProvider::class,
+            \Cviebrock\EloquentSluggable\ServiceProvider::class,
         ];
     }
 

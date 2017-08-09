@@ -47,7 +47,7 @@ Route::group([
         'namespace' => 'Hosted',
     ], function() {
 
-        Route::get('/{page}', 'PageController@index');
+        //Route::get('/{page}', 'PageController@index');
         //Route::get('/images/{path}', 'ImageController@show')->where('path', '*')->name('image.manipulator');
     });
 });

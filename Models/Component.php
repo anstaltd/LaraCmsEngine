@@ -36,4 +36,24 @@ class Component extends Model
     {
         return $this->belongsTo(Page::class);
     }
+
+    /**
+     * @return array
+     */
+    public function toArray()
+    {
+        $data = parent::toArray();
+
+        $data['children'] = $this->children;
+
+        return $data;
+    }
+
+    public static function boot() {
+        parent::boot();
+
+        static::creating(function($page) {
+            $page->author()->associate(\Auth::user());
+        });
+    }
 }

@@ -21,7 +21,7 @@ class Page extends Model
     public $fillable = [
         'slug',
         'title',
-        'available-from',
+        'available_at',
         'active',
         'authorable_id',
         'authorable_type',
@@ -30,6 +30,7 @@ class Page extends Model
         'deletable_type',
         'deletable_id',
         'config',
+        'site_id',
     ];
 
     /**
@@ -62,10 +63,30 @@ class Page extends Model
     }
 
     /**
+     * @return array
+     */
+    public function toArray()
+    {
+        $data = parent::toArray();
+
+        $data['components'] = $this->components;
+
+        return $data;
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function components()
     {
         return $this->hasMany(Component::class);
+    }
+
+    public static function boot() {
+        parent::boot();
+
+        static::creating(function($page) {
+            $page->author()->associate(\Auth::user());
+        });
     }
 }

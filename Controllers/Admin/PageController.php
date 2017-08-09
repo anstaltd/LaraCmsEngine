@@ -4,6 +4,8 @@ namespace Ansta\LaraCms\Controllers\Admin;
 
 use Ansta\LaraCms\Controllers\Controller;
 use Ansta\LaraCms\Models\Site;
+use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Ansta\LaraCms\Models\Page;
 
@@ -18,6 +20,7 @@ class PageController extends Controller
      */
     public $rules = [
         'title' => 'required',
+        //'config' => 'required',
     ];
 
     /**
@@ -50,14 +53,16 @@ class PageController extends Controller
         $this->validate($request, $this->rules);
 
         $options = $request->all();
+        $options['available_at'] = Carbon::now();
 
         $page = $site->pages()->create($options);
 
-        if (isset($options['components'])) {
-            $page->components()->create($options['components']);
+        if (isset($options['components']) && is_array($options['components'])) {
+            //TODO child creation
+            $page->components()->createMany($options['components']);
         }
 
-        return resonse()->json($page);
+        return response()->json($page);
     }
 
     /**

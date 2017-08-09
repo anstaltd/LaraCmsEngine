@@ -13,7 +13,7 @@ trait AuditAuthorLog
      */
     public function author()
     {
-        return $this->morphTo();
+        return $this->morphTo('authorable');
     }
 
     /**

@@ -1,29 +1,31 @@
 <?php
 
-namespace Ansta\LaraCms\Models;
+namespace Ansta\LaraCms\Policy;
 
+use Ansta\LaraCms\Models\Author;
+use Ansta\LaraCms\Models\Page;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 /**
- * Class AuthorPolicy
+ * Class PagePolicy
  * @package Ansta\LaraCms\Models
  */
-class AuthorPolicy
+class PagePolicy
 {
     use HandlesAuthorization;
 
     /**
-     * @var Author
+     * @var Page
      */
-    protected $author;
+    protected $page;
 
     /**
-     * AuthorPolicy constructor.
-     * @param Author $author
+     * PagePolicy constructor.
+     * @param Page $page
      */
-    public function __construct(Author $author)
+    public function __construct(Page $page)
     {
-        $this->author = $author;
+        $this->page = $page;
     }
 
     /**
@@ -35,7 +37,7 @@ class AuthorPolicy
      */
     protected function run(Author $author, $role)
     {
-        return $author->hasRole($role) && $author->sites()->with('authors')->where($author->getTable().'.id', $this->author->id)->count() === 1;
+        return $author->hasRole($role);
     }
 
     /**
@@ -44,7 +46,7 @@ class AuthorPolicy
      */
     public function create(Author $author)
     {
-        return $this->run($author, 'author.create');
+        return $this->run($author, 'page.create');
     }
 
     /**
@@ -53,7 +55,7 @@ class AuthorPolicy
      */
     public function edit(Author $author)
     {
-        return $this->run($author, 'author.edit');
+        return $this->run($author, 'page.edit');
     }
 
     /**
@@ -62,12 +64,12 @@ class AuthorPolicy
      */
     public function destroy(Author $author)
     {
-        return $this->run($author, 'author.destroy');
+        return $this->run($author, 'page.destroy');
     }
 
 //    public function __call($name, $arguments)
 //    {
-//        return $this->run($arguments, Author::class.'.'.$name);
+//        return $this->run($arguments, Page::class.'.'.$name);
 //    }
 
 }
