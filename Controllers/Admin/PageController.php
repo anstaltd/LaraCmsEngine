@@ -23,6 +23,8 @@ class PageController extends Controller
         //'config' => 'required',
     ];
 
+    protected $previousStatus = null;
+
     /**
      * @param Request $request
      * @param Site $site
@@ -87,9 +89,13 @@ class PageController extends Controller
 
         $this->validate($request, $this->rules);
 
+        $this->previousStatus = $page->status_id;
+
         $page->update($request->all());
 
         //need to update components
+
+        $this->handleStatusChange($page);
 
         return resonse()->json($page);
     }
@@ -103,10 +109,21 @@ class PageController extends Controller
     {
         $this->authorize('destroy', Page::class);
 
+        $this->previousStatus = $page->status_id;
+
         $page->destroy();
+
+        $this->handleStatusChange($page);
 
         return response()->json([
             'success' => true,
         ]);
+    }
+
+    public function handleStatusChange(Page $page)
+    {
+        if ($this->previousStatus !== $page->status_id) {
+            //TODO dispatch job
+        }
     }
 }

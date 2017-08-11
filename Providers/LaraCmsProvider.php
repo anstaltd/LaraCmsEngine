@@ -2,6 +2,7 @@
 
 namespace Ansta\LaraCms\Providers;
 
+use Ansta\LaraArticleGenerator\Providers\ArticleGeneratorProvider;
 use Ansta\LaraCms\Commands\AuthorCommand;
 use Ansta\LaraCms\Commands\SiteCommand;
 use Illuminate\Contracts\Filesystem\Filesystem;
@@ -46,6 +47,7 @@ class LaraCmsProvider extends ServiceProvider
     public function provides()
     {
         return [
+            ArticleGeneratorProvider::class,
             \Zizaco\Entrust\EntrustServiceProvider::class,
             \Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
             \Intervention\Image\ImageServiceProvider::class,

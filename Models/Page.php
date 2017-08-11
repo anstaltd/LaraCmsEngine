@@ -4,6 +4,7 @@ namespace Ansta\LaraCms\Models;
 
 use Ansta\LaraCms\Models\Traits\AuditAuthorLog;
 use Ansta\LaraCms\Models\Traits\ConfigData;
+use Ansta\LaraCms\Models\Traits\Status;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
@@ -14,7 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Page extends Model
 {
-    use SoftDeletes, AuditAuthorLog, Sluggable, ConfigData;
+    use SoftDeletes, AuditAuthorLog, Sluggable, ConfigData, Status;
 
     public $table = 'pages';
 
@@ -31,6 +32,7 @@ class Page extends Model
         'deletable_id',
         'config',
         'site_id',
+        'status_id',
     ];
 
     /**

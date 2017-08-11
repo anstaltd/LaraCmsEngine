@@ -26,6 +26,7 @@ class Pages extends Migration
             $table->integer('deletable_id')->nullable();
             $table->text('config');
             $table->dateTime('available_at');
+            $table->integer('status_id')->default(10);
             $table->timestamps();
             $table->softDeletes();
         });
