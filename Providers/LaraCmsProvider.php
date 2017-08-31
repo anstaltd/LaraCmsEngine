@@ -28,7 +28,7 @@ class LaraCmsProvider extends ServiceProvider
 
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
-        $this->loadRoutesFrom(__DIR__.'/../Routes/Api.php');
+//        $this->loadRoutesFrom(__DIR__.'/../Routes/Api.php');
 
         $this->commands([
             SiteCommand::class,
