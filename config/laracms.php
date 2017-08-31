@@ -16,4 +16,8 @@ return [
         'Access-Control-Allow-Headers' => 'Content-Type, X-Auth-Token, Origin, Authorization, Accept',
     ],
 
+    'api_routes' => [
+        'namespace' => '\Ansta\LaraCms\Controllers',
+        'middleware' => 'api',
+    ],
 ];

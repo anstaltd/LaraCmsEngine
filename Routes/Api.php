@@ -1,12 +1,16 @@
 <?php
 
-Route::group([
+Route::group(array_merge([
     'namespace' => '\Ansta\LaraCms\Controllers',
     'middleware' => 'api',
-], function() {
+], config('laracms.api_routes', [])), function() {
 
 
     Route::post('/admin/login', 'Admin\Auth\LoginController@login');
+
+    Route::get('/help', function() {
+        dd('hello');
+    });
 
     Route::group([
         'namespace' => 'Admin',
